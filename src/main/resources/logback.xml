@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <file>/Users/lovis/oracloud.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/Users/lovis/oracloud.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <append>true</append>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{ISO8601} [%thread] [%-5level] %logger{36} - %msg%n</pattern>
+        </layout>
+    </appender>
+
+    <logger name="com.atomikos" level="warn"/>
+    <logger name="org.springframework" level="warn"/>
+    <logger name="org.hibernate" level="warn"/>
+    <logger name="org.apache" level="warn"/>
+    <logger name="ch.qos.logback" level="warn"/>
+
+    <root level="info">
+        <appender-ref ref="FILE"/>
+    </root>
+
+</configuration>
